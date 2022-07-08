@@ -1,0 +1,284 @@
+openapi: 3.0.0
+info:
+  title: Store API
+  contact: {}
+  version: '1.0'
+servers:
+  - url: https://crud-store-api.herokuapp.com/api/v1
+    variables: {}
+paths:
+  /products:
+    get:
+      tags:
+        - Products
+      summary: Get all producs
+      operationId: Getallproducs
+      parameters:
+        - name: page
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 3
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    post:
+      tags:
+        - Products
+      summary: Create product
+      operationId: Createproduct
+      parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - name
+                - price
+                - company
+                - rating
+                - image
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Wooden table
+                price:
+                  type: integer
+                  format: int32
+                  example: 228
+                company:
+                  type: string
+                  example: liddy
+                rating:
+                  type: number
+                  format: double
+                  example: 4.8
+                image:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /product/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The product ID.
+    get:
+      tags:
+        - Products
+      summary: Get single product
+      operationId: Getsingleproduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+
+    delete:
+      tags:
+        - Products
+      summary: Delete product
+      operationId: Deleteproduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+
+    patch:
+      tags:
+        - Products
+      summary: Update product
+      operationId: Updateproduct
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateproductRequest'
+            example:
+              name: wooden table
+              price: 500
+              company: liddy
+              featured: true
+              rating: 4.7
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /product/images/{imageKey}:
+    parameters:
+      - in: path
+        name: imageKey
+        schema:
+          type: string
+        required: true
+        description: The image ID.
+    get:
+      tags:
+        - Products
+      summary: Get single image
+      operationId: Getsingleimage
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /auth/login:
+    post:
+      tags:
+        - Auth
+      summary: Login
+      operationId: Login
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              name: john
+              email: john@gmail.com
+              password: secret123
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/register:
+    post:
+      tags:
+        - Auth
+      summary: Register
+      operationId: Register
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+            example:
+              name: john2
+              email: john2@gmail.com
+              password: secret123
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+components:
+  schemas:
+    LoginRequest:
+      title: LoginRequest
+      required:
+        - name
+        - email
+        - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        name: john
+        email: john@gmail.com
+        password: secret123
+    RegisterRequest:
+      title: RegisterRequest
+      required:
+        - name
+        - email
+        - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        name: john2
+        email: john2@gmail.com
+        password: secret123
+    UpdateproductRequest:
+      title: UpdateproductRequest
+      required:
+        - name
+        - price
+        - company
+        - featured
+        - rating
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        company:
+          type: string
+        featured:
+          type: boolean
+        rating:
+          type: number
+      example:
+        name: wooden table
+        price: 500
+        company: liddy
+        featured: true
+        rating: 4.7
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+  - name: Misc
+    description: ''
+  - name: Products
+    description: ''
+  - name: Auth
+    description: ''
