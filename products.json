@@ -1,0 +1,153 @@
+[
+  {
+    "name": "accent chair",
+    "price": 25,
+    "company": "marcos",
+    "rating": 4,
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "albany sectional",
+    "price": 109,
+    "company": "liddy",
+    "rating": 5,
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "albany table",
+    "price": 309,
+    "company": "liddy",
+    "rating": 4.9,
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "armchair",
+    "price": 125,
+    "company": "marcos",
+    "rating": 4.8,
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "bar stool",
+    "price": 40,
+    "company": "liddy",
+    "rating": 4.6,
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "dining table",
+    "price": 42,
+    "company": "ikea",
+    "rating": 4.55,
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "emperor bed",
+    "price": 23,
+    "company": "ikea",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "entertainment center",
+    "price": 59,
+    "featured": true,
+    "company": "caressa",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "high-back bench",
+    "price": 39,
+    "featured": true,
+    "company": "ikea",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "leather sofa",
+    "price": 99,
+    "company": "caressa",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "modern bookshelf",
+    "price": 31,
+    "featured": true,
+    "company": "caressa",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "modern poster",
+    "price": 30,
+    "company": "liddy",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "shelf",
+    "price": 30,
+    "company": "ikea",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "simple chair",
+    "price": 109,
+    "company": "liddy",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "sofa set",
+    "price": 129,
+    "company": "marcos",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "suede armchair",
+    "price": 15,
+    "company": "caressa",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "utopia sofa",
+    "price": 79,
+    "featured": true,
+    "company": "liddy",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "vase table",
+    "price": 120,
+    "featured": true,
+    "company": "marcos",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "wooden bed",
+    "price": 25,
+    "company": "ikea",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "wooden desk",
+    "price": 15,
+    "company": "ikea",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "wooden desk",
+    "price": 40,
+    "company": "ikea",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "wooden table",
+    "price": 23,
+    "featured": true,
+    "company": "caressa",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  },
+  {
+    "name": "a first wooden table",
+    "price": 23,
+    "featured": true,
+    "company": "caressa",
+    "imageKey": "/products/images/1657215648993--bicibz.png"
+  }
+]
