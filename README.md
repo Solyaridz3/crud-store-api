@@ -62,6 +62,7 @@ Email validation done using that regex
 #### Images
 
 - AWS S3 used to upload images on server
+- imageKey saves to database
 - You can access any image by imageKey using /api/v1/products/images/:imageKey route
 
 #### Register User
