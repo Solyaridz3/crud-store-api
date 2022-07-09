@@ -1,3 +1,7 @@
+#### You can check this API online here
+
+[a link](https://crud-store-api.herokuapp.com/)
+
 #### Setup
 
 1. Setup .env in the root
