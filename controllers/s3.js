@@ -1,6 +1,7 @@
 const S3 = require('aws-sdk/clients/s3');
 require('dotenv').config();
 const fs = require('fs');
+const {NotFoundError} = require("../errors");
 
 const bucketName = process.env.AWS_BUCKET_NAME
 const region = process.env.AWS_BUCKET_REGION
@@ -13,6 +14,7 @@ const s3 = new S3({
     accessKeyId,
     secretAccessKey,
 })
+
 
 function uploadFile(file){
     const fileSteam = fs.createReadStream(file.path)

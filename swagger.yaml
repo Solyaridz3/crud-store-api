@@ -39,33 +39,29 @@ paths:
       parameters: []
       requestBody:
         content:
-          application/x-www-form-urlencoded:
-            encoding: {}
+          multipart/form-data:
             schema:
+              type: object
               required:
                 - name
                 - price
-                - company
-                - rating
                 - image
-              type: object
               properties:
                 name:
                   type: string
-                  example: Wooden table
                 price:
-                  type: integer
-                  format: int32
-                  example: 228
+                  type: number
                 company:
                   type: string
-                  example: liddy
-                rating:
-                  type: number
-                  format: double
-                  example: 4.8
+                  enum: [ikea, liddy, caressa, marcos]
                 image:
                   type: string
+                  format: binary
+                rating:
+                  type: number
+                featured:
+                  type: boolean
+
         required: false
       responses:
         '200':
@@ -74,7 +70,7 @@ paths:
       deprecated: false
       security:
         - bearer: []
-  /product/{id}:
+  /products/{id}:
     parameters:
       - in: path
         name: id
@@ -136,7 +132,7 @@ paths:
       deprecated: false
       security:
         - bearer: []
-  /product/images/{imageKey}:
+  /products/images/{imageKey}:
     parameters:
       - in: path
         name: imageKey

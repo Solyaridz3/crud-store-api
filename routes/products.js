@@ -7,10 +7,11 @@ const {
     getSingeProduct,
     createProduct,
     deleteProduct,
-    updateProduct
+    updateProduct,
+    getImg
 
 } = require('../controllers/products');
-const {getImg} = require('../controllers/img');
+
 const {upload} = require('../middleware/img-middleware');
 
 router.route('/')

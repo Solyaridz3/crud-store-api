@@ -13,7 +13,7 @@ const getAllProductsStatic = async (req, res) => {
     const products = await Product
         .find({price: {$gt: 30, $lt: 50}})
         .select('name price')
-    res.status(201).json({
+    res.status(StatusCodes.OK).json({
         nbHits: products.length, data: products,
     })
 }
@@ -63,7 +63,7 @@ const getAllProducts = async (req, res) => {
     result = result.skip(skip).limit(limit)
     const products = await result
 
-    res.status(201).json({
+    res.status(StatusCodes.OK).json({
         nbHits: products.length, data: products,
     })
 }
@@ -83,7 +83,7 @@ const createProduct = async (req, res) => {
     }
     const {userId} = req.user;
     const result = await uploadFile(req.file);
-    req.body.imageKey = '/products/images/' + result.Key;
+    req.body.imageKey = result.Key;
     req.body.createdBy = userId;
     const product = await Product.create(req.body);
     await unlinkFile(req.file.path);
@@ -110,7 +110,7 @@ const updateProduct = async (req, res) => {
     } = req;
     if (req.file) {
         const result = await uploadFile(req.file);
-        req.body.imageKey = '/products/images/' + result.Key;
+        req.body.imageKey = result.Key;
     }
     const product = await Product.findOneAndUpdate({_id: jobId, createdBy: userId}, req.body,
         {new: true, runValidators: true});
@@ -124,6 +124,17 @@ const updateProduct = async (req, res) => {
 }
 
 
+
+const getImg = async (req, res) => {
+    const key = req.params.key;
+    const readStream = await getFileStream(key);
+    readStream.on('error', () => {
+        res.status(404).json({msg:`No image with key ${key}`})
+    })
+    readStream.pipe(res)
+}
+
+
 module.exports = {
-    getAllProductsStatic, getAllProducts, getSingeProduct, createProduct, deleteProduct, updateProduct
+    getAllProductsStatic, getAllProducts, getSingeProduct, createProduct, deleteProduct, updateProduct, getImg
 }
