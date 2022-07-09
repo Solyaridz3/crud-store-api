@@ -14,16 +14,79 @@ paths:
       summary: Get all producs
       operationId: Getallproducs
       parameters:
+        - name: name
+          in: query
+          description: 'product that contains this text'
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: alban
+        - name: company
+          in: query
+          description: 'company name'
+          required: false
+          style: form
+          explode: true
+          schema:
+            enum: [ikea, liddy, caressa, marcos]
+            type: string
+        - name: fields
+          in: query
+          description: 'fields to show'
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: name,price,company
+        - name: featured
+          in: query
+          description: 'featured or not'
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: boolean
+        - name: sort
+          in: query
+          description: 'sorting order'
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: name,price
+        - name: numericFilters
+          in: query
+          description: 'product that mathces this numeric filters'
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: price>20,rating>4.7
         - name: page
           in: query
-          description: ''
-          required: true
+          description: 'page'
+          required: false
           style: form
           explode: true
           schema:
             type: integer
             format: int32
-            example: 3
+            example: 1
+        - name: limit
+          in: query
+          description: 'how many products to show on the page'
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 20
       responses:
         '200':
           description: ''

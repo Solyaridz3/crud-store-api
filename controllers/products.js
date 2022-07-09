@@ -35,7 +35,7 @@ const getAllProducts = async (req, res) => {
             '>': '$gt', '>=': '$gte', '=': '$eq', '<': '$lt', '<=': '$lte'
         }
         const regEx = /\b(>|>=|=|<=|<)\b/g
-        let filters = numericFilters.replace(regEx, match => `-${operatorMap[match]}-`)
+        let filters = numericFilters.replaceAll(regEx, match => `-${operatorMap[match]}-`)
         const options = ['price', 'rating']
         filters = filters.split(',').map(item => {
             const [field, operator, value] = item.split('-')
@@ -47,13 +47,13 @@ const getAllProducts = async (req, res) => {
 
     let result = Product.find(queryObject)
     if (sort) {
-        const sortString = sort.replace(',', ' ')
+        const sortString = sort.replaceAll(',', ' ')
         result = result.sort(sortString)
     } else {
         result = result.sort('createdAt')
     }
     if (fields) {
-        const selectString = fields.replace(',', ' ')
+        const selectString = fields.replaceAll(',', ' ')
         result = result.select(selectString)
     }
     const page = Number(req.query.page) || 1
