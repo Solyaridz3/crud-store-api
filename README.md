@@ -1,6 +1,6 @@
 #### You can check this API online here
 
-[a link](https://crud-store-api.herokuapp.com/)
+[Heroku crud-store-api](https://crud-store-api.herokuapp.com/)
 
 #### Setup
 
